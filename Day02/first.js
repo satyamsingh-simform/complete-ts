@@ -15,8 +15,8 @@ let x = 100;
         -The any and unknown types in TypeScript are both used to represent values of any type.
         -but unknown is bit safer then any as bcz it will not allow any operation without type check
         -where as in any there is no such type check is required
-    */
-let money;
+*/
+let money; //type any 
 money = 'satya';
 money = 100;
 money = true;
@@ -29,6 +29,34 @@ last2 = 'sing';
 if (typeof last2 === 'string') {
     console.log(last2.toUpperCase);
 }
+/*
+1.emun
+    -Fixed set of values
+    -When values don’t change
+    -Example: directions, roles, statuses
+
+    -export enum ArrowKey{
+        LEFT='ArrowLeft',
+        RIGHT='ArrowRight'
+    }
+
+    -to use enum make sure your config.ts file has
+        -"erasableSyntaxOnly": true, to false or commented
+    -why
+        -“erasable syntax” means:
+        TypeScript code that exists only for type checking and is completely removed when converted to JavaScript.
+
+
+
+2.void
+    -The void type denotes the absence of having any type at all. Typically, you use the void type as the return type of functions that do not return a value.
+    -eg
+    function log(message): void {
+        console.log(messsage);
+    }
+*/
+let useless;
+console.log('my type:',typeof useless);
 //NON-PRIMITIVE DATATYPE
 //array
 let arr = [1, 2, 3, 4]; //this arr can now only contain the no.type

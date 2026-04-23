@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "esnext",
+    "sourceMap": false,
+    "declaration": false,
+    "declarationMap": false,
+    "strict": true
+  }
+}

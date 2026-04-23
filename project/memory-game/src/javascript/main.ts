@@ -1,4 +1,79 @@
-import { gameData } from "./game-data";
+import {state,shuffleEmojis,resetFunc,totalMove,checkWin} from "./game-data";
+import {all_P,reset,moveDetail,time,msg} from "./game-ui";
+
+
+window.addEventListener("DOMContentLoaded", () => {
+
+  alert("you have 60 second to complete the game");
+
+  // shuffle
+  let emojiShuffle: string[] = shuffleEmojis();
+
+  all_P.forEach((p, index) => {
+    p.innerText = emojiShuffle[index];
+  });
+
+  // click logic
+  all_P.forEach((p) => {
+    p.addEventListener("click", () => {
+
+      if (state.lock) return;
+      if (p === state.first) return;
+
+      p.classList.add("flipped");
+
+      if (!state.first) {
+        state.first = p;
+      } else {
+        state.second = p;
+        state.lock = true;
+
+        if (state.first.innerText === state.second.innerText) {
+
+          state.first.classList.add("matched");
+          state.second.classList.add("matched");
+
+          resetFunc();
+          checkWin(all_P, clear, msg);
+          totalMove(moveDetail);
+
+        } else {
+          setTimeout(() => {
+            state.first?.classList.remove("flipped");
+            state.second?.classList.remove("flipped");
+
+            resetFunc();
+            totalMove(moveDetail);
+          }, 1000);
+        }
+      }
+    });
+  });
+
+  reset.addEventListener("click", () => {
+    location.reload();
+  });
+
+  // timer
+  let clear: number = window.setInterval(() => {
+    state.sec++;
+
+    time.innerHTML = `<strong>Total time:${state.sec}</strong>`;
+
+    if (state.sec === 60) {
+      all_P.forEach((p) => {
+        p.classList.add("disabled");
+      });
+
+      msg.innerHTML = `
+        <p class="try-again">Try again</p>
+        <strong>Time limit hit</strong>
+      `;
+
+      clearInterval(clear);
+    }
+  }, 1000);
+});
 
 
 
@@ -10,8 +85,7 @@ import { gameData } from "./game-data";
 
 
 
-
-
+/*
 
 alert('you have 60 second to complete the game');
 
@@ -19,11 +93,11 @@ let arrEmojis: string[] = ["😀","😀","🥳","🥳","🎁","🎁","🎊","�
 let emojiShufle:string[] = arrEmojis.sort(() => (Math.random() - 0.5));
 
 //DOM type
-let all_P = document.querySelectorAll<HTMLElement>('.item');
-let reset = document.getElementById('reset') as HTMLButtonElement;
-let moveDetail = document.querySelector('.detail') as HTMLElement;
-let time = document.querySelector('.time') as HTMLElement;
-let msg = document.querySelector('.msg') as HTMLElement;
+// let all_P = document.querySelectorAll<HTMLElement>('.item');
+// let reset = document.getElementById('reset') as HTMLButtonElement;
+// let moveDetail = document.querySelector('.detail') as HTMLElement;
+// let time = document.querySelector('.time') as HTMLElement;
+// let msg = document.querySelector('.msg') as HTMLElement;
 
 all_P.forEach((p,index)=>{
     p.innerText=emojiShufle[index];
@@ -123,3 +197,4 @@ function totalMove(){
     move++;
     moveDetail.innerHTML=`<strong>Total Move:${move}</strong>`;
 }
+*/
