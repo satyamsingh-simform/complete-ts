@@ -88,3 +88,17 @@ type TokenNum=`Bearer ${number}`//
 const bearerToken:Token="Bearer ffewhwheiheri" //VALID
 const myToken:Token="something efrwgetry" // ERROR
 const bearerToken2:Token="Bearer anything" //VALID
+
+
+
+/*What is infer
+    -infer is used to extract a type from another type
+    -Where is it used?
+        -Only inside conditional types
+    -Why we use it?
+        -When we don’t know a type inside a structure and want to pull it out
+*/
+
+type GetArrayType<T>=T extends (infer U)[] ? U: T;
+
+type A11=GetArrayType<string[]>;
