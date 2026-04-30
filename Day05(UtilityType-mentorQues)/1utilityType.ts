@@ -1,22 +1,22 @@
 /*Utility Types
 1.Partial<T>
-    -Makes all properties optional
+    -Makes all properties optional i.e., fill the property or skip does not give error
     -Useful when: updating object partially
 
 
 2.Required<T>
-    -Makes all properties required
+    -Makes all properties required i.e., all property must be filled.
     -Opposite of Partial
 
 
 3.Readonly<T>
-  -Makes all properties immutable
+  -Makes all properties immutable i.e., can be modified.
 
 
 4.Record<K,T>
   -Record<K, T> creates an object type with keys K and all values of type T
   -Take these keys → assign same type to all of them
-  -what i want is for name type should be string and for age type should be number
+  -what i want is name type should be string and for age type should be number
     -Record cannot assign different types to different keys
 
 4.Pick<T, K>
@@ -52,9 +52,8 @@ const obj1:PartialUser={
 const obj2:User={
   name:"satya",
   age:20,
-  isAdmin:true,
+  // isAdmin:true,
 }
-
 
 
 //2.ReadOnly<T>

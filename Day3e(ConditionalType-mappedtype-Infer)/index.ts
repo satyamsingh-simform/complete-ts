@@ -97,8 +97,21 @@ const bearerToken2:Token="Bearer anything" //VALID
         -Only inside conditional types
     -Why we use it?
         -When we don’t know a type inside a structure and want to pull it out
+    -type GetArrayType<T> = T extends (infer U)[] ? U : T;
+    -If T is an array, extract its element type as U, otherwise return T
+    -To extract unknown inner type from unknown structure
+    -type GetArrayType<T> = T extends (infer U)[] ? U : T;
+        -I don’t know T, but IF it is an array, give me its inner type
+        -type A = GetArrayType<number[]>;   // number
 */
 
-type GetArrayType<T>=T extends (infer U)[] ? U: T;
 
-type A11=GetArrayType<string[]>;
+type GetArrayType<T>=T extends (infer U)[]?U:'not a array';
+
+type arr=GetArrayType<number[]>;
+type arr2=GetArrayType<5>;
+
+/*Conditional types vs Infer
+    -Conditional types (T extends X ? Y : Z)→used to check structure
+    -infer → used to extract inner types from a structure
+*/
