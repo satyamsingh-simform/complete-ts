@@ -12,7 +12,6 @@
     -->whatever code we can write in js can also be written in TS, i.e., TS also support JS syntax  
     -->tsc --watch:change the TS code in JS as you write not wait for u to run cmd tsc in terminal
     -->to exit from tsc --watch: ctrl+c
-
 */
 
 
@@ -90,7 +89,6 @@ if(typeof last2==='string'){
     console.log(last2.toUpperCase);
 }
 
-
 /*
 2.void
     -The void type denotes the absence of having any type at all. Typically, you use the void type as the return type of functions that do not return a value.
@@ -106,6 +104,7 @@ if(typeof last2==='string'){
 */
 
 let useless:void;//its type become undefined
+useless=100;
 console.log(typeof useless);
 
 //here alpha type will auto become never as bcz in alpha both string and no. is must to be present which is impossible,so type become never
@@ -116,7 +115,7 @@ function forever(): never {
   while (true) {}
 }
 
-function raiseError(message: string): never {
+function raiseError(message: string):never{
     throw new Error(message);
 }
 
@@ -178,8 +177,6 @@ let arr311:(string | number)[] = ["Rohit",20,11,"Sohan"];
 arr311.push(10);
 
 let arr41:(string | number | boolean)[] = ["rohit",10,false,11];
-
-
 let tuple2:[string,number,number] = ["Rohit",10,11];
 
 

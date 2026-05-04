@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Everyday is a simple and powerful habit tracker to help you stay consistent, build positive routines, and track your daily progress with ease.">
+    <meta name="keywords" content="habit tracker, daily habits, productivity, routine builder, streak tracker, self improvement">
+    <meta name="author" content="satyam">
+    <title>Everyday:habit-tracker</title>
+    <link rel="stylesheet" href="./src/style/main.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+          <h1>Habit Tracker</h1>
+        </header>
+
+        <section class="add-habit">
+          <form id="add-habit-form">
+            <input type="text" id="habit-input" placeholder="enter the new habit" required/>
+            <button class="add-habit-btn" type="submit">Add Habit</button>
+          </form>
+        </section>
+
+        <section class="tracker">
+          <div id="habit-list" class="habit-list">
+          </div>
+          <div class="tracker-div-bottom">
+            <div id="calendar-row" class="calendar"></div>
+            <div id="grid-container" class="grid-container"></div>
+            <div id="count-row" class="count-row"></div> 
+          </div>
+        </section>
+    </div>
+
+    <script type="module" src="./src/main.ts"></script>
+</body>
+</html>

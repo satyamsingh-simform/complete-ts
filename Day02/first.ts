@@ -95,7 +95,9 @@ type status2='success';
 
 //intersection type
 type person1=name & age;
-type person2=name&age&{address:string};
+type person2=name&age&{
+    address:string
+};
 
 //object type 
 type Teacher={
@@ -228,7 +230,7 @@ person2={
 
 
 
-//passing inline object in fn ->very bad readability
+//passing inline object in fn ->very bad readability so we use type alias or interface here
 function passObj(obj11:{name:string,age:number,isAdmin:boolean}){
     return obj11.name;
 }
@@ -249,8 +251,9 @@ const user:Users={
     admin:true,
 }
 
-function passObj2(obj:Users){
-    return (obj.name, obj.admin, obj.age)
+function passObj2(obj:Users):Users{
+    // return (obj.name, obj.admin, obj.age)
+    return obj;
 }
 console.log(passObj2(user));
 
@@ -267,5 +270,6 @@ let Person3:Per={
 }
 function Per3(obj:Per){
     console.log(obj.name);
+    return(obj.name,obj.age,obj.admin)
 }
 Per3(Person3)
