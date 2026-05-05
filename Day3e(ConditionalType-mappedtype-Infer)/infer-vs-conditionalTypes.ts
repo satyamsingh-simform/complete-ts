@@ -54,7 +54,7 @@ type arr1=IsArray<number[]>;
 type arr21=IsArray<string>;
 
 //real life eg
-let arr = [1, 2, 3];
+let arr = [1, 2, "d"];
 type GetTypeOfArrayElement<T> = T extends (infer S)[] ? S : never; //infer does NOT look at values at all. It works purely at the type level.
 type T11 = GetTypeOfArrayElement<typeof arr>; // number
 

@@ -2,7 +2,7 @@
     -A variable that can hold multiple types
     -eg:- 
         -let value: string | number;
-        -here value can be both string and number
+        -here value can be both string or number
 */
 
 //problem with a union type is that TS need to know the exact type to perform operation else will give error.
@@ -166,6 +166,7 @@ doubt
         -bcz Type Predicate functions ALWAYS return boolean at runtime
     -Type Predicate functions always return boolean, but also inform TypeScript about the exact type when the result is true.
 */
+
 //type predicate
 function isString(value:any):value is string{
     return (typeof value === 'string');

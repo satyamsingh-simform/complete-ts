@@ -23,7 +23,7 @@ console.log(str('satyam'));
     -<T> --> It tells TypeScript:This function will work with some type, which I’ll decide later
     -<T> = declaring a type variable (placeholder)
 */
-/*
+
 //This function takes a value of type T and returns the same type T
 function identity<T>(value:T):T{
     return value;
@@ -34,7 +34,7 @@ console.log(identity<string>('satyam1'));//function identity<string>(value: stri
 //same as above
 console.log(identity(101));        // TS infers string  //function identity<101>(value: 101): 101
 console.log(identity('satyam1'));  // TS infers number  //function identity<"satyam1">(value: "satyam1"): "satyam1"
-*/
+
 
 /*//generic working with array
 function arr<T>(val:T[]):T{
@@ -55,7 +55,7 @@ console.log(arr1([0,1,2])); //function arr1<number>(val: number[]): number[]
 console.log(arr1(['s','a','t']));
 
 
-/*
+
 //multiple generics 
 //This is NOT a normal array, It is a Tuple
 function multipleGen<T,U>(val1:T, val2:U):[T,U]{ //It returns a tuple [T, U] (fixed-size, ordered pair of two types)
@@ -70,7 +70,7 @@ function multiple<T,U>(val1:T, val2:U):(T|U)[]{ //It returns a tuple [T, U] (fix
     return [val1,val2]
 }
 console.log(multiple('sat',100));
-*/
+
 
 
 
